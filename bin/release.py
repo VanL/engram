@@ -695,6 +695,7 @@ def _remote_tag_reuse_note(state: ReleaseState) -> str:
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Create a local Engram release")
     parser.add_argument(
+        "-v",
         "--version",
         help=(
             "Explicit root-package release version in X.Y.Z format. When omitted, "

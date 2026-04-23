@@ -227,7 +227,10 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: engram-python-package-distributions
-          path: dist/
+          path: |
+            dist/*.whl
+            dist/*.tar.gz
+          if-no-files-found: error
 
       - name: Sign the dists with Sigstore
         uses: sigstore/gh-action-sigstore-python@04cffa1d795717b140764e8b640de88853c92acc # v3.3.0
@@ -241,7 +244,10 @@ jobs:
         with:
           generate_release_notes: true
           tag_name: ${{ github.ref_name }}
-          files: dist/*
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+            dist/*.sigstore.json
 
   deploy-pages-index:
     name: Deploy GitHub Pages package index

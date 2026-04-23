@@ -419,6 +419,34 @@ def test_main_dry_run_stages_uv_lock_for_release_commit(
     assert "$ git add pyproject.toml engram/_constants.py uv.lock" in captured.out
 
 
+def test_main_dry_run_short_version_flag_updates_version_targets(
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    """``-v`` should act as an alias for ``--version``."""
+
+    release = _load_release_module()
+    monkeypatch.setattr(release, "read_current_version", lambda: "0.1.0")
+    monkeypatch.setattr(release, "is_dirty_worktree", lambda: False)
+    monkeypatch.setattr(
+        release,
+        "inspect_release_state",
+        lambda version, *, target=release.ROOT_RELEASE_TARGET: _release_state(
+            release,
+            version=version,
+            tag_name=target.tag_name(version),
+        ),
+    )
+    monkeypatch.setattr(release, "current_head_commit", lambda: "a" * 40)
+
+    exit_code = release.main(["-v", "0.1.1", "--dry-run"])
+    captured = capsys.readouterr()
+
+    assert exit_code == 0
+    assert "target:  0.1.1" in captured.out
+    assert "would update pyproject.toml and engram/_constants.py" in captured.out
+
+
 def test_main_dry_run_retags_remote_when_requested(
     monkeypatch: pytest.MonkeyPatch,
     capsys: pytest.CaptureFixture[str],
@@ -579,6 +607,10 @@ def test_release_gate_builds_github_release_without_pypi_publish() -> None:
     assert "python bin/build_github_pages_index.py" in release_gate
     assert "actions/upload-pages-artifact" in release_gate
     assert "actions/deploy-pages" in release_gate
+    assert "dist/*.whl" in release_gate
+    assert "dist/*.tar.gz" in release_gate
+    assert "dist/*.sigstore.json" in release_gate
+    assert "files: dist/*" not in release_gate
     assert "uv publish" not in release_gate
     assert "uses: ./.github/workflows/release.yml" not in release_gate
 

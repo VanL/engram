@@ -825,8 +825,8 @@ def main(argv: list[str] | None = None) -> int:
         if version_changed:
             print(
                 "dry-run: would update "
-                f"{PYPROJECT_PATH.relative_to(PROJECT_ROOT)} and "
-                f"{CONSTANTS_PATH.relative_to(PROJECT_ROOT)}"
+                f"{_display_path(PYPROJECT_PATH)} and "
+                f"{_display_path(CONSTANTS_PATH)}"
             )
         else:
             print(
@@ -869,8 +869,8 @@ def main(argv: list[str] | None = None) -> int:
         write_target_version(ROOT_RELEASE_TARGET, target_version)
         print(
             "Updated version files: "
-            f"{PYPROJECT_PATH.relative_to(PROJECT_ROOT)}, "
-            f"{CONSTANTS_PATH.relative_to(PROJECT_ROOT)}"
+            f"{_display_path(PYPROJECT_PATH)}, "
+            f"{_display_path(CONSTANTS_PATH)}"
         )
     else:
         print(

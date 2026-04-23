@@ -93,6 +93,12 @@ sessions.
 
 ### Scaffold Lessons (inherited)
 
+- Stable human-facing path strings need an explicit formatter. Native
+  `str(Path(...))` and bare `Path.relative_to(...)` are fine for local path
+  objects, but CLI or release-helper output that is asserted across platforms
+  must either use a stable formatter such as `.as_posix()` or be compared as
+  `Path` objects in tests. Otherwise Windows will keep finding the seams.
+
 - Keep canonical agent guidance in shared repo-owned docs and make root agent
   files point to that context instead of carrying divergent copies.
 - Non-trivial plans must be executable by a zero-context engineer: exact

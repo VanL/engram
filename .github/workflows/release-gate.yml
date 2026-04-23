@@ -247,7 +247,6 @@ jobs:
           files: |
             dist/*.whl
             dist/*.tar.gz
-            dist/*.sigstore.json
 
   deploy-pages-index:
     name: Deploy GitHub Pages package index

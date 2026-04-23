@@ -609,7 +609,7 @@ def test_release_gate_builds_github_release_without_pypi_publish() -> None:
     assert "actions/deploy-pages" in release_gate
     assert "dist/*.whl" in release_gate
     assert "dist/*.tar.gz" in release_gate
-    assert "dist/*.sigstore.json" in release_gate
+    assert "dist/*.sigstore.json" not in release_gate
     assert "files: dist/*" not in release_gate
     assert "uv publish" not in release_gate
     assert "uses: ./.github/workflows/release.yml" not in release_gate

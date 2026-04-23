@@ -320,7 +320,7 @@ def test_cli_status_and_rebuild_index(tmp_path: Path, capsys):
     status_output = json.loads(capsys.readouterr().out)
     assert status_output["schema_version"] >= 1
     assert status_output["item_counts"]["moment"] == 1
-    assert status_output["broker_path"].endswith("/.engram/broker.db")
+    assert Path(status_output["broker_path"]) == vault / "broker.db"
     assert status_output["items_needing_processing"] == 0
 
     delete_index_item(vault, item_id)

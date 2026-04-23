@@ -1,0 +1,9 @@
+{"type":"session_meta","payload":{"id":"session-mixed","thread_name":"Mixed noise"}}
+{"type":"response_item","timestamp":"2026-04-20T11:00:00Z","payload":{"type":"message","role":"assistant","content":"Unmatched assistant should be counted."}}
+{"type":"response_item","timestamp":"2026-04-20T11:01:00Z","payload":{"type":"message","role":"user","content":"First user message."}}
+{"type":"event_msg","payload":{"message":"token count event"}}
+{"type":"response_item","timestamp":"2026-04-20T11:02:00Z","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"Second user message."},{"type":"image","url":"file:///tmp/ignored.png"}]}}
+{"type":"response_item","timestamp":"2026-04-20T11:03:00Z","payload":{"type":"function_call","name":"shell","arguments":"{}"}}
+{"type":"response_item","timestamp":"2026-04-20T11:04:00Z","payload":{"type":"reasoning","summary":"hidden reasoning"}}
+{"type":"response_item","timestamp":"2026-04-20T11:05:00Z","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"Grouped reply."}]}}
+{"type":"response_item","timestamp":"2026-04-20T11:06:00Z","payload":{"type":"message","role":"user","content":"Trailing user without assistant."}}

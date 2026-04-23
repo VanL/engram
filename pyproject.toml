@@ -1,0 +1,125 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "engram"
+version = "0.5.0"
+description = "Hierarchical memory for AI agents"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [
+    {name = "Van Lindberg", email = "van@modelmonster.ai"},
+]
+keywords = ["memory", "agents", "context", "retrieval", "embeddings", "search"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "lancedb>=0.30.2",
+    "llm>=0.30",
+    "llm-claude-code",
+    "llm-gemini>=0.30",
+    "llm-grok>=1.4.2",
+    "pyarrow>=18.0",
+    "pydantic>=2.0.0",
+    "sentence-transformers>=3.0",
+    "simplebroker[pg]>=3.1.8",
+    "typing-extensions>=4.0.0",
+    "weft[docker]>=0.9.5",
+]
+
+[project.optional-dependencies]
+pg = [
+    "psycopg[binary]>=3.0",
+]
+all = [
+    "psycopg[binary]>=3.0",
+]
+dev = [
+    "psycopg[binary]>=3.0",
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "mypy>=1.0",
+    "ruff>=0.12",
+]
+
+[project.scripts]
+engram = "engram.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/VanL/engram"
+Documentation = "https://github.com/VanL/engram#readme"
+Repository = "https://github.com/VanL/engram.git"
+Issues = "https://github.com/VanL/engram/issues"
+
+[tool.hatch.build]
+include = [
+    "engram/**/*.py",
+    "engram/**/*.json",
+    "README.md",
+    "LICENSE",
+]
+exclude = [
+    "tests/",
+    ".*",
+    "*.db",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+addopts = "-ra -q --strict-markers -m 'not slow'"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "shared: backend-agnostic tests that pass across SQLite and Postgres",
+    "sqlite_only: tests that validate SQLite-specific behavior",
+]
+
+[tool.mypy]
+python_version = "3.13"
+no_namespace_packages = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+plugins = ["pydantic.mypy"]
+exclude = "(^tests/)"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+]
+ignore = [
+    "E501", # line too long
+    "B008", # do not perform function calls in argument defaults
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["engram"]
+
+[tool.uv.sources]
+llm-claude-code = { git = "https://github.com/VanL/llm-claude-code.git" }

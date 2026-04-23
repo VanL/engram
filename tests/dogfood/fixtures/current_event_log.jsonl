@@ -1,0 +1,4 @@
+{"type":"session_meta","payload":{"id":"session-current","thread_name":"Codex corpus validation"}}
+{"type":"response_item","timestamp":"2026-04-20T10:00:00Z","payload":{"type":"message","role":"developer","content":[{"type":"input_text","text":"Developer instructions stay out of memory."}]}}
+{"type":"response_item","timestamp":"2026-04-20T10:01:00Z","payload":{"type":"message","role":"user","content":[{"type":"input_text","text":"Create the corpus validation plan."}]}}
+{"type":"response_item","timestamp":"2026-04-20T10:02:00Z","payload":{"type":"message","role":"assistant","content":[{"type":"output_text","text":"I will build parser fixtures first, then replay."}]}}

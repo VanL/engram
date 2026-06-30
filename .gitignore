@@ -26,6 +26,10 @@ MANIFEST
 .engram-runs/
 .weft
 .broker*
+.taut.*
+.claude
+.codex
+.grok
 
 # Virtual environments
 venv/

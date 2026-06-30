@@ -11,6 +11,59 @@ sessions.
 - A completed change revealed a stronger general rule than the repo previously
   encoded.
 
+## Golden Rules
+
+Universal principles that inform every change. The dated sections below are the
+incident log; these are the durable rules distilled from it.
+
+1. **Canonicalize once, at the boundary.** Normalize data at ingest/write
+   boundaries through one shared helper. Never add runtime dual-case fallback
+   readers -- they hide contract bugs.
+2. **Fix forward, never fall back.** Don't add read-time fallback modes to mask
+   drift or corruption. Detect invariant violations and surface them; repair
+   with forward migrations.
+3. **One canonical contract across all consumers.** Same keys, shapes, and
+   vocabulary everywhere. Mixed legacy keys cause cascading mismatches.
+4. **Validate at write time, fail fast.** Catch errors at the point of
+   creation, not in downstream batch gates or runtime checks.
+5. **Update all consumers in the same change.** When renaming keys, tightening
+   schemas, or changing contracts, update all producers and consumers together.
+   Partial renames pass isolated checks but fail at runtime.
+6. **Test what you ship.** Add a regression test with each behavior-changing
+   fix. Generate fixtures through production code paths, not synthesis.
+7. **Plans fail at boundaries, not in the middle.** For risky work, name what
+   must not change, hidden couplings, anti-mocking rules, rollout/rollback
+   constraints, and post-deploy success signals before implementation starts.
+8. **If a document is human-clear but agent-ambiguous, tighten it
+   immediately.** Missing owner, boundary, verification path, or required action
+   makes agents guess wrong even when the prose feels obvious to a human.
+9. **Agents suggest dependencies; humans add them.** _(2026-06-30)_ An agent
+   must not introduce a new dependency on its own -- propose it with
+   justification: what it's for, why the standard library or an already-vendored
+   dependency won't do, and the cost of taking it on. Every dependency is
+   permanent code we don't control. The human decides whether it enters the
+   manifest (`pyproject.toml` / `uv.lock`).
+10. **Flag concerns and calibrate uncertainty, even when you did exactly what
+    was asked.** _(2026-06-30)_ Surface risks you noticed in passing instead of
+    letting a completed task hide a known landmine. Distinguish verified from
+    unverified claims with precise language ("I have not confirmed X") rather
+    than a vague "this should work." Report blockers with precise causes.
+11. **Handle the error path, not just the happy path.** _(2026-06-30)_ A feature
+    whose success path works but whose error, empty, or timeout path is silently
+    ignored is incomplete. Name the failure cases in the plan's success criteria
+    and test at least one. Do not paper over an unexpected null or empty result
+    with a defensive check -- find out why it is null first.
+12. **Formatting is owned by the project formatters -- run them; don't
+    hand-format, and don't reformat incidentally.** _(2026-06-30)_ This repo's
+    formatter is `ruff format` and its linter is `ruff check`, run from the
+    in-repo virtualenv (`./.venv/bin/ruff format engram tests bin`,
+    `./.venv/bin/ruff check engram tests bin`, and `mypy engram`; CI enforces
+    `ruff format --check`). Let those tools decide style -- do not impose manual
+    whitespace or style changes. In a behavior change, keep the diff to the
+    lines the task requires; do not let an editor or formatter reflow untouched
+    code into the change. Keep formatting-only churn in its own change. If a
+    line changed only because "I was in there," revert it.
+
 ## Lessons
 
 ### Design Phase (2026-04-16)

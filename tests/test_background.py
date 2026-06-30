@@ -116,6 +116,8 @@ def test_initialize_embedded_weft_project_calls_weft_init_with_vault_overrides(
             "WEFT_DIRECTORY_NAME": ".engram",
             "WEFT_DEFAULT_DB_LOCATION": "",
             "WEFT_DEFAULT_DB_NAME": ".engram/broker.db",
+            "WEFT_PROJECT_CONFIG_PATH": ".engram",
+            "WEFT_PROJECT_CONFIG_NAME": "broker.toml",
         }
 
     def _fake_weft_cmd_init(directory, *, quiet, autostart, overrides):  # type: ignore[no-untyped-def]
@@ -142,6 +144,8 @@ def test_initialize_embedded_weft_project_calls_weft_init_with_vault_overrides(
         "WEFT_DIRECTORY_NAME": ".engram",
         "WEFT_DEFAULT_DB_LOCATION": "",
         "WEFT_DEFAULT_DB_NAME": ".engram/broker.db",
+        "WEFT_PROJECT_CONFIG_PATH": ".engram",
+        "WEFT_PROJECT_CONFIG_NAME": "broker.toml",
     }
 
 

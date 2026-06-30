@@ -99,6 +99,23 @@ For risky work, name up front:
 - rollback or rollout sequencing
 - one-way doors or destructive edges
 
+## 11. Prove the Problem with a Failing Test First
+
+Write a failing test that proves the problem exists, watch it fail, then make
+it pass. If you cannot write the failing test, you do not understand the
+problem well enough to fix it. If something is hard to test, that is
+information about the design, not permission to skip the test. Generate
+fixtures through production code paths, not synthesis.
+
+This complements principle 5 ("Prefer Real Behavior Over Mock-Heavy Proof"):
+that one is about *what* to test; this one is about *when and why*.
+
+## 12. Update All Consumers in the Same Change
+
+When you rename a key, tighten a schema, or change a contract, update every
+producer and consumer in the same change. A partial rename passes isolated
+checks and fails at runtime; the synchronized update is the fix.
+
 ## Warning Signs
 
 Sessions usually go sideways when one of these happens:
@@ -111,6 +128,8 @@ Sessions usually go sideways when one of these happens:
 - a later stage quietly changes the direction of the earlier plan
 - the plan says what to build but not what must stay true
 - coalescing quality is assumed rather than tested with retrieval round-trips
+- a regression is called "pre-existing" without running it on the base branch
+  to prove it
 
 ## Foundation Review Checklist
 
@@ -128,3 +147,14 @@ Use this quick check before approving foundation changes:
 - Is this current behavior or a planned idea?
 - Is this adding a backwards-compatibility path instead of moving all users to
   the canonical path?
+
+## The Meta-Principle: Compound Knowledge
+
+Every rule above is an instance of one idea: each unit of engineering work
+should make the next one easier. A canonical converter means the next agent
+doesn't re-derive the format. A blast-radius note means the next change knows
+its impact zone. A failing test means the next debugging session starts from
+known-good. A lesson written down means the next session doesn't repeat the
+mistake. Treat the guidance docs, the lessons file, and explicit plan
+boundaries as compound knowledge -- maintain them so the system gets easier to
+work on correctly over time.

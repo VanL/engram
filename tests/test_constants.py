@@ -10,6 +10,8 @@ from engram._constants import (
     ENV_WEFT_DEFAULT_DB_LOCATION,
     ENV_WEFT_DEFAULT_DB_NAME,
     ENV_WEFT_DIRECTORY_NAME,
+    ENV_WEFT_PROJECT_CONFIG_NAME,
+    ENV_WEFT_PROJECT_CONFIG_PATH,
     load_embedded_weft_config,
     load_embedded_weft_overrides,
 )
@@ -30,6 +32,8 @@ def test_load_embedded_weft_overrides_translates_engram_namespace(
     monkeypatch.setenv(ENV_WEFT_DIRECTORY_NAME, ".custom-engram")
     monkeypatch.setenv(ENV_WEFT_DEFAULT_DB_LOCATION, str(tmp_path / "elsewhere"))
     monkeypatch.setenv(ENV_WEFT_DEFAULT_DB_NAME, ".custom-engram/custom.db")
+    monkeypatch.setenv(ENV_WEFT_PROJECT_CONFIG_PATH, ".custom-engram")
+    monkeypatch.setenv(ENV_WEFT_PROJECT_CONFIG_NAME, "custom.toml")
 
     overrides = load_embedded_weft_overrides(vault_path)
 
@@ -42,6 +46,8 @@ def test_load_embedded_weft_overrides_translates_engram_namespace(
     )
     assert overrides["WEFT_DEFAULT_DB_LOCATION"] == ""
     assert overrides["WEFT_DEFAULT_DB_NAME"] == ".engram/broker.db"
+    assert overrides["WEFT_PROJECT_CONFIG_PATH"] == ".engram"
+    assert overrides["WEFT_PROJECT_CONFIG_NAME"] == "broker.toml"
 
 
 def test_load_embedded_weft_config_forces_vault_owned_sqlite_path(
@@ -62,6 +68,8 @@ def test_load_embedded_weft_config_forces_vault_owned_sqlite_path(
             "WEFT_LOGGING_ENABLED": False,
             "BROKER_DEFAULT_DB_LOCATION": "",
             "BROKER_DEFAULT_DB_NAME": ".weft/broker.db",
+            "BROKER_PROJECT_CONFIG_PATH": ".weft",
+            "BROKER_PROJECT_CONFIG_NAME": "broker.toml",
         }
         if overrides is not None:
             config.update(overrides)
@@ -71,6 +79,14 @@ def test_load_embedded_weft_config_forces_vault_owned_sqlite_path(
                 ]
             if "WEFT_DEFAULT_DB_NAME" in overrides:
                 config["BROKER_DEFAULT_DB_NAME"] = overrides["WEFT_DEFAULT_DB_NAME"]
+            if "WEFT_PROJECT_CONFIG_PATH" in overrides:
+                config["BROKER_PROJECT_CONFIG_PATH"] = overrides[
+                    "WEFT_PROJECT_CONFIG_PATH"
+                ]
+            if "WEFT_PROJECT_CONFIG_NAME" in overrides:
+                config["BROKER_PROJECT_CONFIG_NAME"] = overrides[
+                    "WEFT_PROJECT_CONFIG_NAME"
+                ]
         return config
 
     monkeypatch.setattr(weft_constants, "load_config", _fake_load_config)
@@ -80,5 +96,9 @@ def test_load_embedded_weft_config_forces_vault_owned_sqlite_path(
     assert config["WEFT_DIRECTORY_NAME"] == ".engram"
     assert config["WEFT_DEFAULT_DB_LOCATION"] == ""
     assert config["WEFT_DEFAULT_DB_NAME"] == ".engram/broker.db"
+    assert config["WEFT_PROJECT_CONFIG_PATH"] == ".engram"
+    assert config["WEFT_PROJECT_CONFIG_NAME"] == "broker.toml"
     assert config["BROKER_DEFAULT_DB_LOCATION"] == ""
     assert config["BROKER_DEFAULT_DB_NAME"] == ".engram/broker.db"
+    assert config["BROKER_PROJECT_CONFIG_PATH"] == ".engram"
+    assert config["BROKER_PROJECT_CONFIG_NAME"] == "broker.toml"

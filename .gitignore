@@ -72,7 +72,13 @@ Thumbs.db
 *.log
 
 # Multi-agent
-.claude
+.claude/*
+!.claude/
+!.claude/skills/
+!.claude/skills/**
+!.agents/
+!.agents/skills/
+!.agents/skills/**
 .mcp.json
 agent_history/
 .code/

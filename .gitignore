@@ -28,7 +28,9 @@ MANIFEST
 .broker*
 .taut.*
 .claude
+.claude/
 .codex
+.codex/
 .grok
 
 # Virtual environments

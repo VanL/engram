@@ -33,9 +33,9 @@ dependencies = [
     "pyarrow>=18.0",
     "pydantic>=2.0.0",
     "sentence-transformers>=3.0",
-    "simplebroker[pg]>=3.2.0",
+    "simplebroker[pg]>=4.9.0",
     "typing-extensions>=4.0.0",
-    "weft[docker]>=0.9.11",
+    "weft[docker]>=0.9.84",
 ]
 
 [project.optional-dependencies]

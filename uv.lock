@@ -490,9 +490,9 @@ requires-dist = [
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=4.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.12" },
     { name = "sentence-transformers", specifier = ">=3.0" },
-    { name = "simplebroker", extras = ["pg"], specifier = ">=3.1.9" },
+    { name = "simplebroker", extras = ["pg"], specifier = ">=4.9.0" },
     { name = "typing-extensions", specifier = ">=4.0.0" },
-    { name = "weft", extras = ["docker"], specifier = ">=0.9.9" },
+    { name = "weft", extras = ["docker"], specifier = ">=0.9.84" },
 ]
 provides-extras = ["pg", "all", "dev"]
 
@@ -2312,11 +2312,11 @@ wheels = [
 
 [[package]]
 name = "simplebroker"
-version = "3.1.9"
+version = "4.9.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/1f/71/58e6a8747ec705b50bc8f9726bfad91259d4e97731a863b339bfb5c5ac58/simplebroker-3.1.9.tar.gz", hash = "sha256:243841469b45d3ec08856ab8b8ea16b2a2b3928adc3c576418d1ee43c1ed8ff1", size = 135718, upload-time = "2026-04-23T20:09:25.394Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c5/ee/175c5a71c5b2ed3ad4bdca68ea6554288259acb1e272e3892ab5f1333719/simplebroker-4.9.0.tar.gz", hash = "sha256:b7cc39b5ce6c6d010f519a6550a8286d7282469421a4b046c7cf0f04978c0396", size = 182428, upload-time = "2026-06-18T18:10:58.6Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/59/fa/9827767645fabaaceba3db1d611e69c13ae832e88f83740d787ba8ae703f/simplebroker-3.1.9-py3-none-any.whl", hash = "sha256:69d23ae82f13ce072fde559e7c2eaaa2ed77794ad4916cb7b4b8e321b6116b35", size = 152905, upload-time = "2026-04-23T20:09:27.81Z" },
+    { url = "https://files.pythonhosted.org/packages/31/c8/b589b3044cf9d89bc61f54e3a506d5bfdc9d47256e4d27b33bccd15b33ac/simplebroker-4.9.0-py3-none-any.whl", hash = "sha256:815629d30094feea89661b1834b1c682da2d5f3a505e2e5b40f91faabff8e7dc", size = 202054, upload-time = "2026-06-18T18:10:57.182Z" },
 ]
 
 [package.optional-dependencies]
@@ -2326,16 +2326,16 @@ pg = [
 
 [[package]]
 name = "simplebroker-pg"
-version = "1.0.5"
+version = "2.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "psycopg", extra = ["binary"] },
     { name = "psycopg-pool" },
     { name = "simplebroker" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/0b/eb/526044a885f0f3ea00fbc9026270a533c09dacff098ad43aaebe0f3fa2c2/simplebroker_pg-1.0.5.tar.gz", hash = "sha256:3fa4ba0c5b095a40c31048255e3a0321fd1811978d1928797d873fe56823bd84", size = 14187, upload-time = "2026-04-15T02:18:00.985Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e5/63/130a876c4dce1a8bbd68ea6db4b3d405691d5600eaee91da53c8b0a2973b/simplebroker_pg-2.4.0.tar.gz", hash = "sha256:a09f17fc8e3641c14baefb0887b19b7abaea8cddd379aa89294ed89babb18a0c", size = 20251, upload-time = "2026-06-18T18:10:50.503Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d2/6d/5409fc0b8a2b03b92061ad335986e7228a153fdbf68a88852d776343f0cc/simplebroker_pg-1.0.5-py3-none-any.whl", hash = "sha256:fd0a6321aa892b3c7d821a5939e61ff009df32ef03b261f1d2035b8834bdf47e", size = 19138, upload-time = "2026-04-15T02:17:59.071Z" },
+    { url = "https://files.pythonhosted.org/packages/eb/a2/7795dfc25b146943cf539e7dd69923055d9544ba6c1d974afefe28b6b43f/simplebroker_pg-2.4.0-py3-none-any.whl", hash = "sha256:ff1c4ab136af457a2a4201678d0e89a16d0d8bdb3a753b1997cf838851d6d680", size = 26311, upload-time = "2026-06-18T18:10:49.37Z" },
 ]
 
 [[package]]
@@ -2659,7 +2659,7 @@ wheels = [
 
 [[package]]
 name = "weft"
-version = "0.9.9"
+version = "0.9.84"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "llm" },
@@ -2672,9 +2672,9 @@ dependencies = [
     { name = "typer" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/29/8b/0109e1cd65624588057948ee194a4db6249117a7d50750633909e3f611dd/weft-0.9.9.tar.gz", hash = "sha256:dabe2eb350189d476dfb4eb8f3a368808bc31953d2e22541efbb7fcc95de11da", size = 278230, upload-time = "2026-04-28T16:55:31.003Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/3f/7d/8c9cd6bf90e5e931c44a98557e132d05c6cc42705d03314160decf6fd5e4/weft-0.9.84.tar.gz", hash = "sha256:af30f6285018320a59ed60bb82010c1c02b4dff0aa076b397f45640cd851d01a", size = 531424, upload-time = "2026-06-29T16:07:17.907Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/18/28/c7144ee44e4e3c5862b64dd13bac0b1d84b2a58132ad195c6d22ae33599d/weft-0.9.9-py3-none-any.whl", hash = "sha256:e76b1555dc5e4e097b15992b8de97758dbf4bd1fc35481f9529a061bd1e246a2", size = 345657, upload-time = "2026-04-28T16:55:32.418Z" },
+    { url = "https://files.pythonhosted.org/packages/88/9b/37709db9a5daf7ccb7ff82e1ae79c9690a8e5d0b0e56b1bb5ea587248f75/weft-0.9.84-py3-none-any.whl", hash = "sha256:3cd493a6da5c7cc563ac9841aba3c5e2ba56b51db2cf9fc7ebb8bf3faa10e917", size = 629559, upload-time = "2026-06-29T16:07:19.235Z" },
 ]
 
 [package.optional-dependencies]
@@ -2684,13 +2684,13 @@ docker = [
 
 [[package]]
 name = "weft-docker"
-version = "0.6.1"
+version = "0.9.70"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "docker" },
     { name = "weft" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/94/4e/efd70fba23ed07e96a7a3ec477ec15ba1c43b726307ff974d100f2eba1ea/weft_docker-0.6.1.tar.gz", hash = "sha256:c1d1cc7781f5f3ae05e16eba167135ddb2f92589cdcab1d98e8e8ca045831a15", size = 17782, upload-time = "2026-04-16T18:15:23.093Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/1e/3e/4eb09631f32dae77f99ddc7825c2d43c9766a94aeb636cdd3243ada88542/weft_docker-0.9.70.tar.gz", hash = "sha256:891a65875e15fc65a44771e9c2871d68364c711f86056914a0e8647b1b297839", size = 23170, upload-time = "2026-05-28T21:13:44.943Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b2/5f/a61198f34827eca5f8fd1d526680a6cbefc03a37a044d9e5f6dbcd3a021d/weft_docker-0.6.1-py3-none-any.whl", hash = "sha256:ea8212fdb2ec1a2d18f9fe951a39ff95feb420cd43563cadd6a519d8f4892925", size = 20687, upload-time = "2026-04-16T18:15:21.891Z" },
+    { url = "https://files.pythonhosted.org/packages/65/2f/e922805aa0dde4a2a58a6ca1b759452cea713ac163bf8e84bb2d445e15a8/weft_docker-0.9.70-py3-none-any.whl", hash = "sha256:640bb1f7d339c95a48e343c158e322477d5453ac47dd5244ab884ad381e66a9b", size = 28227, upload-time = "2026-05-28T21:13:44.117Z" },
 ]

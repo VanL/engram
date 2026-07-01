@@ -16,7 +16,7 @@ from typing import Any, Final
 # Version
 # ---------------------------------------------------------------------------
 
-__version__: Final[str] = "0.5.1"
+__version__: Final[str] = "0.5.2"
 PROG_NAME: Final[str] = "engram"
 
 

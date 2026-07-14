@@ -1,5 +1,5 @@
 schema_version: 1
-updated_at: 2026-04-07
+updated_at: 2026-07-06
 hub: docs/agent-context
 read_order:
   - docs/agent-context/decision-hierarchy.md
@@ -29,6 +29,8 @@ documents:
     role: operational_runbook
   - path: docs/agent-context/runbooks/testing-patterns.md
     role: operational_runbook
+  - path: docs/agent-context/runbooks/adversarial-acceptance-probes.md
+    role: operational_runbook
   - path: docs/agent-context/runbooks/maintaining-traceability.md
     role: operational_runbook
   - path: docs/agent-context/runbooks/skills-lifecycle.md
@@ -37,3 +39,7 @@ documents:
     role: lessons_pointer
   - path: docs/lessons.md
     role: canonical_lessons_ledger
+  - path: docs/coalescing.md
+    role: coalescing_state
+  - path: docs/agent-context/runbooks/external-skill-suites.md
+    role: operational_runbook

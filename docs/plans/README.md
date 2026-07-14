@@ -41,3 +41,19 @@ Risky plans are blocked if they do not make explicit:
 - enough current-structure context to find the right edit point
 - what must stay real in tests
 - rollback or rollout sequencing when compatibility depends on it
+
+## Status Index
+
+| Plan | Status |
+|------|--------|
+| 2026-07-14-agent-guidance-propagation-plan.md | active |
+
+(Existing plans gain rows as they open or as the coalescing sweep
+needs them.)
+
+## Retired Plans
+
+One line per retired plan; the body lives in git at the source SHA.
+
+| Plan | Dates | Outcome | Absorbed into | Source SHA |
+|------|-------|---------|---------------|------------|

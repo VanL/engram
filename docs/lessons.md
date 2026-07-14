@@ -1,5 +1,8 @@
 # Lessons Learned
 
+Startup context is the Golden Rules plus entries after the watermark in
+`docs/coalescing.md`; the rest of this ledger is searchable history.
+
 Use this file for durable, project-level lessons that should influence future
 sessions.
 
@@ -63,8 +66,35 @@ incident log; these are the durable rules distilled from it.
     lines the task requires; do not let an editor or formatter reflow untouched
     code into the change. Keep formatting-only churn in its own change. If a
     line changed only because "I was in there," revert it.
+13. **Enumerable contracts get executable gates.** _(2026-07-02)_ Any list a
+    document asserts — issue codes, exit codes, edge cases, config keys — must
+    be mirrored by a machine check that enumerates it (a firing test per
+    element, a no-op prevention test per key). Prose binds only what gets
+    checked; agents comply uniformly with gates and unevenly with everything
+    else. (See engineering-principles §13 and testing-patterns Pattern 6.)
 
 ## Lessons
+
+### Cohesion Over File Size (2026-07-06)
+
+- 2026-07-06: File size alone is not a review finding, and a split proposed
+  on line count alone is not a fix. Large cohesive files (e.g., the `Engram`
+  facade in `engram/core/memory.py`) are pre-joined indexes for grep-driven
+  agents; splitting genuinely coupled code manufactures false seams and
+  parallel-implementation drift. The real floors: implicit couplings get an
+  explicit marker at the edit point, and every live state machine (e.g., the
+  deferred item-processing lifecycle) gets a name and a contract test.
+  Doctrine and local examples: engineering-principles §15 ("Cohesion Over
+  File Size (Floors, Not Line Counts)").
+
+### Guidance Sync (2026-07-02)
+
+- 2026-07-02: Verification-lessons fold synced from agent-guidance (2026-07-02
+  working tree; pinned 2026-07-14: that fold landed as agent-guidance
+  `5927481`, and the 2026-07-14 wave adopted by
+  `docs/plans/2026-07-14-agent-guidance-propagation-plan.md` is
+  agent-guidance `2f7eff6`). Source
+  incident record: the backstitch repo's `docs/lessons.md`.
 
 ### Design Phase (2026-04-16)
 

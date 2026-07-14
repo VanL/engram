@@ -38,7 +38,7 @@ an authorized maintenance task (`skills/coalescing/SKILL.md`).
 
 | Tier | Checked through (date, SHA) | Counts at check | Reason deferred | Reconsider when |
 |------|------------------------------|-----------------|-----------------|-----------------|
-| Lessons | 2026-07-14, first sweep | 2 past (no) watermark — under threshold 10; both within age floor | Not tripped; nothing foldable | Count changes or entries age past 30 days |
+| Lessons | 2026-07-14, `f92fa82` | 2 past (no) watermark — under threshold 10; both within age floor | Not tripped; nothing foldable | Count changes or entries age past 30 days |
 | Plans | 2026-07-14, first sweep | not derived | Plan statuses not yet indexed; the 21 plans predate the status index | A sweep is authorized with plans in scope |
 | Promotion | 2026-07-14, first sweep | not derived | Derive at a future sweep | — |
 
@@ -46,4 +46,4 @@ an authorized maintenance task (`skills/coalescing/SKILL.md`).
 
 | Date | Tier(s) | Source SHA | Claim |
 |------|---------|------------|-------|
-| 2026-07-14 | all | — (checked-deferred; nothing folded) | Layer adopted from agent-guidance `2f7eff6`; first sweep ran in the same unit per the sweep-after-propagation rule. Lessons: 2 dated entries, under threshold, within age floor. No watermark advanced. |
+| 2026-07-14 | all | `f92fa82` (checked-deferred; nothing folded) | Layer adopted from agent-guidance `2f7eff6`; first sweep ran in the same unit per the sweep-after-propagation rule. Lessons: 2 dated entries, under threshold, within age floor. No watermark advanced. |

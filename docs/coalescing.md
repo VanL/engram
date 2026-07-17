@@ -26,6 +26,21 @@ an authorized maintenance task (`skills/coalescing/SKILL.md`).
 | Plans | plans with status completed/superseded, not `exemplar`, and no retired-ledger line | 5 | none — the harvest gate and two-step retirement are the guards |
 | Promotion | distinct citations of the same workflow theme since the promotion watermark | 3 | n/a |
 
+## Fold Unit and Progress Model
+
+Per [DOM-14], each repository declares its fold unit and the matching
+progress model. Engram's documentation ledger is **repo-wide, not
+domain-grouped**: lessons are one dated ledger and plans are one flat
+index, so the fold unit is the whole tier, counted repo-wide over
+fold-eligible (cold, unfolded) material only — entries within the age
+floor or already folded do not count. The progress model is a single
+**date-plus-SHA watermark per tier** (the Watermarks table below). A
+date cursor is valid here because lessons fold oldest-first by age
+floor, not by theme-cluster across dates; if a tier ever begins folding
+by theme-cluster, it must switch to a fold-records index per the
+[DOM-14] trigger bullet, because a date cursor would then falsely claim
+older unfolded material behind it was folded.
+
 ## Watermarks
 
 | Tier | Distilled through | Source SHA |

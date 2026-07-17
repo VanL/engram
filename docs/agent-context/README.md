@@ -36,6 +36,8 @@ agents, and human contributors working in this repository.
   implementation must pass before integration, independent of spec version
 - `maintaining-traceability.md`: how to keep docs synchronized during delivery
 - `skills-lifecycle.md`: how to add, update, and retire reusable skills
+- `designing-agent-facing-interfaces.md`: principles for designing APIs,
+  CLIs, and docs that agents consume
 - `external-skill-suites.md`: precedence and crosswalk for external skill
   suites (superpowers, gstack, Every's compound engineering)
 

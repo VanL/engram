@@ -107,6 +107,11 @@ Quick pointers to the key guidance documents and code in this repository.
 |------|---------|
 | `skills/README.md` | Skill directory purpose and conventions |
 | `skills/_template/SKILL.md` | Starter template for new skills |
+| `skills/brainstorming-to-plan/SKILL.md` | Turn exploration into a dated plan |
+| `skills/call-agent/SKILL.md` | Invoke an independent-review agent family |
+| `skills/coalescing/SKILL.md` | Documentation-ledger coalescing sweep ([DOM-14]) |
+| `skills/debugging/SKILL.md` | Root-cause debugging loop |
+| `skills/interface-review/SKILL.md` | Review an agent-facing surface against the interface principles |
 
 ## Update Guidance
 

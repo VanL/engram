@@ -61,4 +61,5 @@ older unfolded material behind it was folded.
 
 | Date | Tier(s) | Source SHA | Claim |
 |------|---------|------------|-------|
+| 2026-07-17 | — (propagation; nothing folded) | source agent-guidance @ `b248e1c`; landed `b1d799e` | Delta wave per `docs/plans/2026-07-17-agent-guidance-propagation-plan.md`: [DOM-14] fold-unit trigger bullet + this file's fold-unit declaration; designing-agent-facing-interfaces runbook and interface-review skill adopted (principle-number remaps recorded in the plan); six coalescing-skill refinements, term-collision disambiguation preserved; writing-plans and review-loops wave content; call-agent brief standard. Scoped review no blocker, zero findings. No thresholds, watermarks, or folds touched. |
 | 2026-07-14 | all | `f92fa82` (checked-deferred; nothing folded) | Layer adopted from agent-guidance `2f7eff6`; first sweep ran in the same unit per the sweep-after-propagation rule. Lessons: 2 dated entries, under threshold, within age floor. No watermark advanced. |

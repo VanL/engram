@@ -48,6 +48,7 @@ Risky plans are blocked if they do not make explicit:
 |------|--------|
 | 2026-07-14-agent-guidance-propagation-plan.md | active |
 | 2026-07-17-agent-guidance-propagation-plan.md | completed — hub delta 2f7eff6..b248e1c landed; scoped review no-blocker, zero findings |
+| 2026-07-28-agent-guidance-propagation-plan.md | completed — hub delta b248e1c..e42762c landed; scoped review no-blocker |
 
 (Existing plans gain rows as they open or as the coalescing sweep
 needs them.)

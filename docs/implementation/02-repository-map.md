@@ -11,6 +11,9 @@ Quick pointers to the key guidance documents and code in this repository.
 | `README.md` | Project overview and design decisions |
 | `bin/release.py` | Maintainer release helper for version sync, checks, commit, and tag push |
 | `bin/build_github_pages_index.py` | Builds the GitHub Pages Python simple index from release assets |
+| `bin/check-dom15-fixtures` | Gate: structural contract of the [DOM-15] classification fixture table |
+| `bin/check-doc-paths` | Gate: every backticked repo-relative path claim in the guidance surfaces resolves |
+| `bin/coalesce-check` | Evidence trail for the documentation-ledger coalescing layer: derives the lessons count, verifies every run-log SHA/cue (local, sibling, published-remote), reports local-only pins |
 
 ## Package Structure
 

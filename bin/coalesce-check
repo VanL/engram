@@ -44,7 +44,7 @@ SHA_RE = re.compile(r"`([0-9a-f]{7,40})`")
 CUE_RE = re.compile(r"git show ([0-9a-f]{7,40}):([A-Za-z0-9_./-]+)")
 
 
-SIBLINGS = ["agent-guidance", "mm", "weft", "taut", "backstitch", "simplebroker"]
+SIBLINGS = ["agent-theory", "mm", "weft", "taut", "backstitch", "simplebroker"]
 SIBLING_ROOT = REPO_ROOT.parent
 
 
